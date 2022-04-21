@@ -6,7 +6,9 @@ const SQL_USERS_CREATE = `
 	CREATE TABLE users (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		nome TEXT,
-		descricao TEXT
+		email TEXT,
+		joinedAt DATE,
+		active INTEGER
 	)`
 
 const Database = new sqlite3.Database(DBSOURCE, (err) => {
