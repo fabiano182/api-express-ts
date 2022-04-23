@@ -1,11 +1,11 @@
 import sqlite3 from 'sqlite3'
 
-const DBSOURCE = 'db.sqlite'
+const DBSOURCE = 'src/database/database.db'
 
 const SQL_USERS_CREATE = `
 	CREATE TABLE users (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		nome TEXT,
+		name TEXT,
 		email TEXT,
 		joinedAt DATE,
 		active INTEGER

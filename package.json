@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.ts",
-    "deploy": "tsc && dist/js/server.js"
+    "dev": "nodemon --watch src/** --ext ts,json --exec ts-node src/server.ts",
+    "build": "tsc",
+    "start": "node ./dist/index.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
@@ -20,6 +21,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "nodemon": "^2.0.15",
     "sqlite3": "^5.0.4",
+    "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   },
   "dependencies": {

@@ -2,9 +2,9 @@ import Users from '../models/users'
 import Database from './database'
 
 const usersRepository = {
-	create: (users: Users, callback: (id?: number) => void) => {
-		const sql = 'INSERT INTO users (name, email, joinedAt, active) VALUES (?, ?, ?)'
-		const params = [users.name, users.email, users.joinedAt, users.active]
+	create: (user: Users, callback: (id?: number) => void) => {
+		const sql = 'INSERT INTO users (name, email, joinedAt, active) VALUES (?, ?, ?, ?)'
+		const params = [user.name, user.email, user.joinedAt, user.active]
 		Database.run(sql, params, function(_err) {
 			callback(this?.lastID)
 		})
@@ -23,8 +23,8 @@ const usersRepository = {
 	},
 
 	update: (id: number, users: Users, callback: (notFound: boolean) => void) => {
-		const sql = 'UPDATE users SET name = ?, active = ? WHERE id = ?'
-		const params = [users.name, users.active, id]
+		const sql = 'UPDATE users SET name = ?, email = ?, active = ? WHERE id = ?'
+		const params = [users.name, users.email, users.active, id]
 		Database.run(sql, params, function(_err) {
 			callback(this.changes === 0)
 		})
